@@ -40,12 +40,21 @@ namespace OctopusController
                         _bones[i] = root;
                         root = root.GetChild(1);
                     }
-                    _bones[3] = root;
+
                     _endEffectorSphere = root;
+                    _bones[3] = root;
 
                     break;
                 case TentacleMode.TAIL:
                     //TODO: in _endEffectorsphere you keep a reference to the red sphere 
+                    _bones = new Transform[5];
+
+                    for (int i = 0; i < 5; i++)
+                    {
+                        _bones[i] = root;
+                        root = root.GetChild(1);
+                    }
+                    _endEffectorSphere = root;
                     break;
                 case TentacleMode.TENTACLE:
                     //TODO: in _endEffectorphere you  keep a reference to the sphere with a collider attached to the endEffector

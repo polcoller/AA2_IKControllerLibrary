@@ -50,3 +50,10 @@ D:\ENTI\3er\Modelatge i Animació de personatges\AA2\MyOctopusLibrary\OctopusCon
 D:\ENTI\3er\Modelatge i Animació de personatges\AA2\MyOctopusLibrary\OctopusController\OctopusController\obj\Debug\OctopusController.csproj.CopyComplete
 D:\ENTI\3er\Modelatge i Animació de personatges\AA2\MyOctopusLibrary\OctopusController\OctopusController\obj\Debug\OctopusController.dll
 D:\ENTI\3er\Modelatge i Animació de personatges\AA2\MyOctopusLibrary\OctopusController\OctopusController\obj\Debug\OctopusController.pdb
+G:\ENTI\Modelatge\AA2\ENTREGA\AA2_IKControllerLibrary\OctopusController\bin\Debug\OctopusController.dll
+G:\ENTI\Modelatge\AA2\ENTREGA\AA2_IKControllerLibrary\OctopusController\bin\Debug\OctopusController.pdb
+G:\ENTI\Modelatge\AA2\ENTREGA\AA2_IKControllerLibrary\OctopusController\obj\Debug\OctopusController.csproj.AssemblyReference.cache
+G:\ENTI\Modelatge\AA2\ENTREGA\AA2_IKControllerLibrary\OctopusController\obj\Debug\OctopusController.csproj.CoreCompileInputs.cache
+G:\ENTI\Modelatge\AA2\ENTREGA\AA2_IKControllerLibrary\OctopusController\obj\Debug\OctopusController.csproj.CopyComplete
+G:\ENTI\Modelatge\AA2\ENTREGA\AA2_IKControllerLibrary\OctopusController\obj\Debug\OctopusController.dll
+G:\ENTI\Modelatge\AA2\ENTREGA\AA2_IKControllerLibrary\OctopusController\obj\Debug\OctopusController.pdb
