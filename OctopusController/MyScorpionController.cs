@@ -27,9 +27,8 @@ namespace OctopusController
         private Vector3[] backwardPos;
         private Vector3[] forwardPos;
         private float[] angles;
-        private float offset = 0.33f;
         private float dist = 0.05f;
-        private int velocityGradient = 18;
+        private int velocityGradient = 8;
         private int iterations = 4;
         float[] distances;
 
@@ -40,7 +39,7 @@ namespace OctopusController
             _legs = new MyTentacleController[LegRoots.Length];
             legFutureBases = new Transform[LegFutureBases.Length];
             legTargets = new Transform[LegTargets.Length];
-            //Legs init
+
             for (int i = 0; i < LegRoots.Length; i++)
             {
                 _legs[i] = new MyTentacleController();
@@ -48,15 +47,15 @@ namespace OctopusController
                 //TODO: initialize anything needed for the FABRIK implementation
                 legTargets[i] = LegTargets[i];
                 legFutureBases[i] = LegFutureBases[i];
-                
-            }
-            copy = new Vector3[_legs[0].Bones.Length];
-            backwardPos = new Vector3[_legs[0].Bones.Length];
-            forwardPos = new Vector3[_legs[0].Bones.Length];
 
-            //Guardamos distancia entre huesos
-            distances = new float[_legs[0].Bones.Length];
-            
+                if(i == 0)
+                {
+                    copy = new Vector3[_legs[i].Bones.Length];
+                    backwardPos = new Vector3[_legs[i].Bones.Length];
+                    forwardPos = new Vector3[_legs[i].Bones.Length];
+                    distances = new float[_legs[i].Bones.Length];
+                }
+            } 
         }
 
         public void InitTail(Transform TailBase)
@@ -64,8 +63,8 @@ namespace OctopusController
             _tail = new MyTentacleController();
             _tail.LoadTentacleJoints(TailBase, TentacleMode.TAIL);
             //TODO: Initialize anything needed for the Gradient Descent implementation
-            copyTail = new Vector3[_tail.Bones.Length];
             copyTailOffset = new Vector3[_tail.Bones.Length];
+            copyTail = new Vector3[_tail.Bones.Length];
             angles = new float[_tail.Bones.Length];
 
             for (int i = 0; i < copyTail.Length; i++)
@@ -135,14 +134,14 @@ namespace OctopusController
             for (int i = 1; i < _tail.Bones.Length; i++)
             {
                 rot *= Quaternion.AngleAxis(angles[i - 1], copyTail[i - 1]);
-                Vector3 nextPoint = lastPoint + rot * copyTailOffset[i] * offset;
+                Vector3 nextPoint = lastPoint + rot * copyTailOffset[i];
 
                 lastPoint = nextPoint;
             }
             return lastPoint;
         }
 
-        public float PartialGradient(Vector3 target, float[] angles, int i)
+        public float GradientDescent(Vector3 target, float[] angles, int i)
         {
             float d = DistanceTarget(target, angles);
             angles[i] += dist;
@@ -158,7 +157,7 @@ namespace OctopusController
             {
                 for (int i = 0; i < _tail.Bones.Length; i++)
                 {
-                    angles[i] -= PartialGradient(tailTarget.transform.position, angles, i);
+                    angles[i] -= GradientDescent(tailTarget.transform.position, angles, i);
                     if (i == 0)
                     {
                         _tail.Bones[i].localEulerAngles = new Vector3(angles[i], _tail.Bones[i].rotation.y, _tail.Bones[i].rotation.z);
@@ -175,7 +174,6 @@ namespace OctopusController
         //TODO: implement fabrik method to move legs 
         private Vector3[] ForwardPositions(Vector3[] backwardPos, int j)
         {
-
             for (int i = 0; i < backwardPos.Length; i++)
             {
                 if (i == 0)
@@ -234,7 +232,7 @@ namespace OctopusController
                     }
                 }
 
-                for (int j = 0; j < iterations; j++)
+                for (int j = 0; j <= iterations; j++)
                 {
                     copy = BackwardPositions(ForwardPositions(copy, i), i);
                       
