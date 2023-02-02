@@ -153,7 +153,6 @@ namespace OctopusController
                         legFutureBases[i].position = hit.point;
                     }
                     isLerp[i] = true;
-                    //_legs[i].Bones[0].transform.position = legFutureBases[i].transform.position;
                 }
                 if (lerpCounter[i] >= 1)
                 {
