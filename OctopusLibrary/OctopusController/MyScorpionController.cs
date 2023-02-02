@@ -179,7 +179,7 @@ namespace OctopusController
             }
 
             averageLegPosition /= _legs.Length;
-            averageLegPosition += legsBodyOffset; // = 1,5
+            averageLegPosition += legsBodyOffset;
             if (averageLegPosition > previousBodyPosition.y)
             {
                 body.transform.position = new Vector3(body.transform.position.x, averageLegPosition, body.transform.position.z);

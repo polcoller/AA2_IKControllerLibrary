@@ -102,7 +102,6 @@ public class IK_Scorpion : MonoBehaviour
             {
                 Body.position = Vector3.MoveTowards(Body.position, targets[iterator].position, Time.deltaTime);
                 Body.Rotate(new Vector3(0, Body.transform.position.y - targets[iterator].position.y, 0), Time.deltaTime);
-                //Body.LookAt(new Vector3(targets[iterator].transform.position.x, targets[iterator].transform.position.y, targets[iterator].transform.position.z));
                 if (Body.position == targets[iterator].position)
                 {
                     iterator++;
