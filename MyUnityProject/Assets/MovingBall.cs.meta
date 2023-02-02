@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 1537c169f06908442bf4b9e9d72334f4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - myScorpion: {instanceID: 0}
+  - _myOctopus: {instanceID: 0}
+  - blueTarget: {instanceID: 0}
+  - forceSlider: {instanceID: 0}
+  - magnusSlider: {instanceID: 0}
+  - greenArrow: {instanceID: 0}
+  - redArrow: {instanceID: 0}
+  - greyArrow: {instanceID: 0}
+  - rotVelocityTxt: {instanceID: 0}
+  - descriptionAngularTxt: {instanceID: 0}
+  - goalText: {instanceID: 0}
+  - greyLineObject: {instanceID: 0}
+  - blueLineObject: {instanceID: 0}
+  - yellowTarget: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
