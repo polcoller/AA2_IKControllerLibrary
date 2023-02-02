@@ -248,12 +248,12 @@ public class MovingBall : MonoBehaviour
             if (decreaseForce)
             {
                 forceSlider.value -= 0.035f;
-                initVelocityGradient -= forceSlider.value * 0.025f;
+                initVelocityGradient -= forceSlider.value * 0.03f;
             }
             if (!decreaseForce)
             {
                 forceSlider.value += 0.035f;
-                initVelocityGradient += forceSlider.value * 0.025f;
+                initVelocityGradient += forceSlider.value * 0.03f;
             }
             if (shootForce <= minForce)
             {

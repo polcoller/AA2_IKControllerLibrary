@@ -52,7 +52,7 @@ public class IK_Scorpion : MonoBehaviour
     void Update()
     {
 
-        if(animPlaying)
+        if (animPlaying)
             animTime += Time.deltaTime;
 
         NotifyTailTarget();
@@ -64,11 +64,14 @@ public class IK_Scorpion : MonoBehaviour
             NotifyStartWalk();
             animTime = 0;
             animPlaying = true;
+            isPathing = false;
+            iterator = 0;
         }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            isPathing = true;
+        if (!animPlaying) { 
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                isPathing = true;
+            }
         }
 
         if (isGoingToShoot) 
