@@ -153,7 +153,6 @@ namespace OctopusController
                         legFutureBases[i].position = hit.point;
                     }
                     isLerp[i] = true;
-                    //_legs[i].Bones[0].transform.position = legFutureBases[i].transform.position;
                 }
                 if (lerpCounter[i] >= 1)
                 {
@@ -180,7 +179,7 @@ namespace OctopusController
             }
 
             averageLegPosition /= _legs.Length;
-            averageLegPosition += legsBodyOffset; // = 1,5
+            averageLegPosition += legsBodyOffset;
             if (averageLegPosition > previousBodyPosition.y)
             {
                 body.transform.position = new Vector3(body.transform.position.x, averageLegPosition, body.transform.position.z);
@@ -326,4 +325,3 @@ namespace OctopusController
     }
     #endregion
 }
-
